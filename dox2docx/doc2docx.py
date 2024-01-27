@@ -41,10 +41,14 @@ def convert_to_docx(doc_file_path, docx_file_path):
     doc.Close()
 
     # Make Word application invisible before quitting
-    word_app.Visible = False
+    # word_app.Visible = False
 
     # Quit Word application
-    word_app.Quit()
+    try:
+        # Quit Word application
+        word_app.Quit()
+    except Exception as e:
+        print(f"Error while quitting Word application: {e}")
 
 
 if __name__ == "__main__":
